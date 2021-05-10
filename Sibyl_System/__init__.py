@@ -112,12 +112,12 @@ def system_cmd(
         args["pattern"] = re.compile(r"[\?\.!/]" + pattern)
     else:
         args["pattern"] = re.compile(r"[\?\.!]" + pattern)
-    if allow_charlie and allow_conquerors:
-        args["from_users"] = CONQUERORS
-    elif allow_admirals and allow_charlie:
-        args["from_users"] = ADMIRALS
+    if allow_cardinal and allow_managers:
+        args["from_users"] = MANAGERS
+    elif allow_developers and allow_cardinal:
+        args["from_users"] = DEVELOPERS
     else:
-        args["from_users"] = CHARLIE
+        args["from_users"] = CARDINAL 
     if force_reply:
         args["func"] = lambda e: e.is_reply
     return events.NewMessage(**args)
